@@ -23,7 +23,7 @@ local_repository(
 
 # ==================================================================
 
-# Add definition of tensorflow version 2.17.1 stable.
+# Add definition of tensorflow version 2.18.1 stable.
 http_archive(
         name = "org_tensorflow",
         urls = [
