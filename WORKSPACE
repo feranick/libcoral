@@ -23,14 +23,14 @@ local_repository(
 
 # ==================================================================
 
-# Add definition of tensorflow version 2.18.1 stable.
+# Add definition of tensorflow version 2.19.1 stable.
 http_archive(
         name = "org_tensorflow",
         urls = [
-            "https://github.com/tensorflow/tensorflow/archive/cb64295ec7308f770b22db6047a1e755b35b7bee.tar.gz",
+            "https://github.com/tensorflow/tensorflow/archive/f4247ebb6f9e7421f38c3f01a9a5d5cd54bd24fd.tar.gz",
         ],
-        sha256 = "5fcca4ec0732e146547fc26f6966cf92236c2f85a9e086b85c83d303e2c38980",
-        strip_prefix = "tensorflow-" + "cb64295ec7308f770b22db6047a1e755b35b7bee",
+        sha256 = "b4cbd03710db2f05a0f4f5f238c496f39e6be34bab1a168e5c0ade1b23d74dfe",
+        strip_prefix = "tensorflow-" + "f4247ebb6f9e7421f38c3f01a9a5d5cd54bd24fd",
         patches = ["//patches:add_configure_cuda.diff"],
         patch_args = ["-p1"],
         )
@@ -61,7 +61,12 @@ load(
     "python_repository",
 )
 
-python_repository(name = "python_version_repo")
+#python_repository(name = "python_version_repo")
+
+local_repository(
+    name = "python_version_repo",
+    path = "local_repo/python_version_repo"
+)
 
 load("@python_version_repo//:py_version.bzl", "HERMETIC_PYTHON_VERSION")
 
